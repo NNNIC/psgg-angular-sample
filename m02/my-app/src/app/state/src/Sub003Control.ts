@@ -1,9 +1,13 @@
-﻿// This source is created by ExcelStateChartConverter.exe. Source : Sub003Control.xlsx
+﻿//  psggConverterLib.dll converted from Sub003Control.xlsx. 
 import { Sub003ControlSub } from './Sub003ControlSub';
+
 export class Sub003Control extends Sub003ControlSub {
+
     public start() {
         this.Goto(this.S_START);
     }
+
+
     /*
         S_START
         開始
@@ -12,11 +16,7 @@ export class Sub003Control extends Sub003ControlSub {
         if (bFirst) {
             this.curstatename = 'S_START';
             // this.curstatecmt  = '開始';
-
         }
-
-
-
         if (!this.HasNextState()) {
             this.SetNext(this.S_INIT);
         }
@@ -32,11 +32,7 @@ export class Sub003Control extends Sub003ControlSub {
         if (bFirst) {
             this.curstatename = 'S_END';
             // this.curstatecmt  = '終了';
-
         }
-
-
-
         if (this.HasNextState()) {
             this.GoNext();
         }
@@ -51,9 +47,6 @@ export class Sub003Control extends Sub003ControlSub {
             // this.curstatecmt  = '初期化';
             this.sub003_init();
         }
-
-
-
         if (!this.HasNextState()) {
             this.SetNext(this.S_ChangeValues);
         }
@@ -71,10 +64,8 @@ export class Sub003Control extends Sub003ControlSub {
             // this.curstatecmt  = '値変更';
             this.change_values();
         }
-
-
-        this.br_godraw(this.S_KickDrawCircle);
-    this.br_notAbove(this.S_END);
+        this.br_godraw(this.S_KickDrawCircle)
+        this.br_notAbove(this.S_END)
         this.NoWait();
         if (this.HasNextState()) {
             this.GoNext();
@@ -90,9 +81,6 @@ export class Sub003Control extends Sub003ControlSub {
             // this.curstatecmt  = '円描画を起動';
             this.kick_draw();
         }
-
-
-
         if (!this.HasNextState()) {
             this.SetNext(this.S_WAIT);
         }
@@ -109,12 +97,8 @@ export class Sub003Control extends Sub003ControlSub {
         if (bFirst) {
             this.curstatename = 'S_WAIT';
             // this.curstatecmt  = '待ち';
-
         }
-
         if (!this.wait_isdone()) { return; }
-
-
         if (!this.HasNextState()) {
             this.SetNext(this.S_ChangeValues);
         }
@@ -124,3 +108,4 @@ export class Sub003Control extends Sub003ControlSub {
     }
 
 }
+

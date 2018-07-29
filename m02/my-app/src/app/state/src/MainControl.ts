@@ -1,9 +1,13 @@
-﻿// This source is created by ExcelStateChartConverter.exe. Source : MainControl.xlsx
+﻿//  psggConverterLib.dll converted from MainControl.xlsx. 
 import { MainControlSub } from './MainControlSub';
+
 export class MainControl extends MainControlSub {
+
     public start() {
         this.Goto(this.S_START);
     }
+
+
     /*
         S_START
         開始
@@ -12,11 +16,7 @@ export class MainControl extends MainControlSub {
         if (bFirst) {
             this.curstatename = 'S_START';
             // this.curstatecmt  = '開始';
-
         }
-
-
-
         if (!this.HasNextState()) {
             this.SetNext(this.S_BUTTONS);
         }
@@ -32,11 +32,7 @@ export class MainControl extends MainControlSub {
         if (bFirst) {
             this.curstatename = 'S_END';
             // this.curstatecmt  = '終了';
-
         }
-
-
-
         if (this.HasNextState()) {
             this.GoNext();
         }
@@ -49,20 +45,17 @@ export class MainControl extends MainControlSub {
         if (bFirst) {
             this.curstatename = 'S_BUTTONS';
             // this.curstatecmt  = 'ボタン分岐';
-
         }
-
-
         this.br_0001(this.S_TEST0001);
-    this.br_0002(this.S_TEST002);
-    this.br_0003(this.S_TEST003);
-    this.br_0004(this.S_TEST4);
-    this.br_0005(this.S_TEST5);
-    this.br_0006(this.S_TEST6);
-    this.br_0007(this.S_TEST7);
-    this.br_0008(this.S_TEST8);
-    this.br_0009(this.S_TEST9);
-    this.br_0010(this.S_TEST10);
+        this.br_0002(this.S_TEST002);
+        this.br_0003(this.S_TEST003);
+        this.br_0004(this.S_TEST4);
+        this.br_0005(this.S_TEST5);
+        this.br_0006(this.S_TEST6);
+        this.br_0007(this.S_TEST7);
+        this.br_0008(this.S_TEST8);
+        this.br_0009(this.S_TEST9);
+        this.br_0010(this.S_TEST10);
         if (this.HasNextState()) {
             this.GoNext();
         }
@@ -77,9 +70,6 @@ export class MainControl extends MainControlSub {
             // this.curstatecmt  = 'new state';
             this.test0001();
         }
-
-
-
         if (!this.HasNextState()) {
             this.SetNext(this.S_BUTTONS);
         }
@@ -97,9 +87,6 @@ export class MainControl extends MainControlSub {
             // this.curstatecmt  = 'new state';
             this.test0002();
         }
-
-
-
         if (!this.HasNextState()) {
             this.SetNext(this.S_BUTTONS);
         }
@@ -117,9 +104,6 @@ export class MainControl extends MainControlSub {
             // this.curstatecmt  = 'new state';
             this.test0003();
         }
-
-
-
         if (!this.HasNextState()) {
             this.SetNext(this.S_BUTTONS);
         }
@@ -137,9 +121,6 @@ export class MainControl extends MainControlSub {
             // this.curstatecmt  = 'new state';
             this.test0004();
         }
-
-
-
         if (!this.HasNextState()) {
             this.SetNext(this.S_BUTTONS);
         }
@@ -157,9 +138,6 @@ export class MainControl extends MainControlSub {
             // this.curstatecmt  = 'new state';
             this.test0005();
         }
-
-
-
         if (!this.HasNextState()) {
             this.SetNext(this.S_BUTTONS);
         }
@@ -177,9 +155,6 @@ export class MainControl extends MainControlSub {
             // this.curstatecmt  = 'new state';
             this.test0006();
         }
-
-
-
         if (!this.HasNextState()) {
             this.SetNext(this.S_BUTTONS);
         }
@@ -197,9 +172,6 @@ export class MainControl extends MainControlSub {
             // this.curstatecmt  = 'new state';
             this.test0007();
         }
-
-
-
         if (!this.HasNextState()) {
             this.SetNext(this.S_BUTTONS);
         }
@@ -217,9 +189,6 @@ export class MainControl extends MainControlSub {
             // this.curstatecmt  = 'new state';
             this.test0008();
         }
-
-
-
         if (!this.HasNextState()) {
             this.SetNext(this.S_BUTTONS);
         }
@@ -237,9 +206,6 @@ export class MainControl extends MainControlSub {
             // this.curstatecmt  = 'new state';
             this.test0009();
         }
-
-
-
         if (!this.HasNextState()) {
             this.SetNext(this.S_BUTTONS);
         }
@@ -257,9 +223,6 @@ export class MainControl extends MainControlSub {
             // this.curstatecmt  = 'new state';
             this.test0010();
         }
-
-
-
         if (!this.HasNextState()) {
             this.SetNext(this.S_BUTTONS);
         }
@@ -269,3 +232,4 @@ export class MainControl extends MainControlSub {
     }
 
 }
+
