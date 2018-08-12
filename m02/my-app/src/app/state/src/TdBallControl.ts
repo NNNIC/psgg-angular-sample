@@ -1,9 +1,13 @@
-﻿// This source is created by ExcelStateChartConverter.exe. Source : TdBallControl.xlsx
+﻿//  psggConverterLib.dll converted from TdBallControl.xlsx. 
 import { TdBallControlSub } from './TdBallControlSub';
+
 export class TdBallControl extends TdBallControlSub {
+
     public start() {
         this.Goto(this.S_START);
     }
+
+
     /*
         S_START
         開始
@@ -12,11 +16,7 @@ export class TdBallControl extends TdBallControlSub {
         if (bFirst) {
             this.curstatename = 'S_START';
             // this.curstatecmt  = '開始';
-
         }
-
-
-
         if (!this.HasNextState()) {
             this.SetNext(this.S_INIT);
         }
@@ -33,11 +33,20 @@ export class TdBallControl extends TdBallControlSub {
         if (bFirst) {
             this.curstatename = 'S_END';
             // this.curstatecmt  = '終了';
-
         }
-
-
-
+        if (this.HasNextState()) {
+            this.GoNext();
+        }
+    }
+    /*
+        S_0001
+        new state
+    */
+    S_0001(bFirst: boolean) {
+        if (bFirst) {
+            this.curstatename = 'S_0001';
+            // this.curstatecmt  = 'new state';
+        }
         if (this.HasNextState()) {
             this.GoNext();
         }
@@ -52,9 +61,6 @@ export class TdBallControl extends TdBallControlSub {
             // this.curstatecmt  = '初期化';
             this.initialize();
         }
-
-
-
         if (!this.HasNextState()) {
             this.SetNext(this.S_MOVE);
         }
@@ -71,12 +77,9 @@ export class TdBallControl extends TdBallControlSub {
         if (bFirst) {
             this.curstatename = 'S_MOVE';
             // this.curstatecmt  = '移動';
-
         }
         this.move();
         if (!this.is_done()) { return; }
-
-
         if (!this.HasNextState()) {
             this.SetNext(this.S_DESTROY);
         }
@@ -94,9 +97,6 @@ export class TdBallControl extends TdBallControlSub {
             // this.curstatecmt  = '終了処理';
             this.OutOfDate();
         }
-
-
-
         if (!this.HasNextState()) {
             this.SetNext(this.S_END);
         }
@@ -106,3 +106,4 @@ export class TdBallControl extends TdBallControlSub {
     }
 
 }
+
