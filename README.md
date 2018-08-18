@@ -1,4 +1,13 @@
 # psgg-angular-sample
 (underdeveloping)
-test
-test2
+
+## Implement example
+
+```
+    const sm = new hogeControl();
+    sm.start();
+    while(!sm.is_end()) {
+        sm.Update();
+    }
+```
+
