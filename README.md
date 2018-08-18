@@ -1,5 +1,4 @@
 # psgg-angular-sample
-(underdeveloping)
 
 ## Implement example
 
