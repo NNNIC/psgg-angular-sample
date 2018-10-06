@@ -1,6 +1,6 @@
 # psgg-angular-sample
 
-## Implement example
+## Implementation example
 
 ```
     const sm = new hogeControl();
