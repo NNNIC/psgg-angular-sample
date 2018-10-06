@@ -9,17 +9,24 @@ export class MainControl extends MainControlSub {
 
 
     /*
-        S_START
-        開始
+        S_BUTTONS
+        ボタン分岐
     */
-    S_START(bFirst: boolean) {
+    S_BUTTONS(bFirst: boolean) {
         if (bFirst) {
-            this.curstatename = 'S_START';
-            // this.curstatecmt  = '開始';
+            this.curstatename = 'S_BUTTONS';
+            // this.curstatecmt  = 'ボタン分岐';
         }
-        if (!this.HasNextState()) {
-            this.SetNext(this.S_BUTTONS);
-        }
+        this.br_0001(this.S_TEST0001)
+        this.br_0002(this.S_TEST002)
+        this.br_0003(this.S_TEST003)
+        this.br_0004(this.S_TEST4)
+        this.br_0005(this.S_TEST5)
+        this.br_0006(this.S_TEST6)
+        this.br_0007(this.S_TEST7)
+        this.br_0008(this.S_TEST8)
+        this.br_0009(this.S_TEST9)
+        this.br_0010(this.S_TEST10)
         if (this.HasNextState()) {
             this.GoNext();
         }
@@ -38,24 +45,17 @@ export class MainControl extends MainControlSub {
         }
     }
     /*
-        S_BUTTONS
-        ボタン分岐
+        S_START
+        開始
     */
-    S_BUTTONS(bFirst: boolean) {
+    S_START(bFirst: boolean) {
         if (bFirst) {
-            this.curstatename = 'S_BUTTONS';
-            // this.curstatecmt  = 'ボタン分岐';
+            this.curstatename = 'S_START';
+            // this.curstatecmt  = '開始';
         }
-        this.br_0001(this.S_TEST0001);
-        this.br_0002(this.S_TEST002);
-        this.br_0003(this.S_TEST003);
-        this.br_0004(this.S_TEST4);
-        this.br_0005(this.S_TEST5);
-        this.br_0006(this.S_TEST6);
-        this.br_0007(this.S_TEST7);
-        this.br_0008(this.S_TEST8);
-        this.br_0009(this.S_TEST9);
-        this.br_0010(this.S_TEST10);
+        if (!this.HasNextState()) {
+            this.SetNext(this.S_BUTTONS);
+        }
         if (this.HasNextState()) {
             this.GoNext();
         }
@@ -103,6 +103,23 @@ export class MainControl extends MainControlSub {
             this.curstatename = 'S_TEST003';
             // this.curstatecmt  = 'new state';
             this.test0003();
+        }
+        if (!this.HasNextState()) {
+            this.SetNext(this.S_BUTTONS);
+        }
+        if (this.HasNextState()) {
+            this.GoNext();
+        }
+    }
+    /*
+        S_TEST10
+        new state
+    */
+    S_TEST10(bFirst: boolean) {
+        if (bFirst) {
+            this.curstatename = 'S_TEST10';
+            // this.curstatecmt  = 'new state';
+            this.test0010();
         }
         if (!this.HasNextState()) {
             this.SetNext(this.S_BUTTONS);
@@ -205,23 +222,6 @@ export class MainControl extends MainControlSub {
             this.curstatename = 'S_TEST9';
             // this.curstatecmt  = 'new state';
             this.test0009();
-        }
-        if (!this.HasNextState()) {
-            this.SetNext(this.S_BUTTONS);
-        }
-        if (this.HasNextState()) {
-            this.GoNext();
-        }
-    }
-    /*
-        S_TEST10
-        new state
-    */
-    S_TEST10(bFirst: boolean) {
-        if (bFirst) {
-            this.curstatename = 'S_TEST10';
-            // this.curstatecmt  = 'new state';
-            this.test0010();
         }
         if (!this.HasNextState()) {
             this.SetNext(this.S_BUTTONS);

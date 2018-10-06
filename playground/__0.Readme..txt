@@ -1,0 +1,9 @@
+1. START SYN-G-GEn
+2. Select "Create New State Machine"
+3. Set state machine's name to "testControl"
+4. Set the document folder to "m00/doc"
+5. set the source folder to "m00/my-app/src/app/statesrc"
+
+_clean.bat -- clear doc and statesrc folders.
+_make.bat  -- build and open the web.
+_open_synggen.bat -- open SYN-G-GEN.
