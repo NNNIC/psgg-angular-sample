@@ -5,5 +5,6 @@ echo :
 echo : npm Install
 echo : 
 echo : continue?
+pause
 npm install
 pause

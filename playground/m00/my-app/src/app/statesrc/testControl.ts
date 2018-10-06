@@ -11,6 +11,23 @@ export class testControl extends StateManager {
     //                             [SYN-G-GEN OUTPUT START]   $/^[SE]_/$
 //  psggConverterLib.dll converted from testControl.xlsx. 
     /*
+        S_0001
+        new state
+    */
+    S_0001(bFirst: boolean) {
+        if (bFirst) {
+            this.curstatename = 'S_0001';
+            // this.curstatecmt  = 'new state';
+            alert('!');
+        }
+        if (!this.HasNextState()) {
+            this.SetNext(this.S_END);
+        }
+        if (this.HasNextState()) {
+            this.GoNext();
+        }
+    }
+    /*
         S_END
     */
     S_END(bFirst: boolean) {
@@ -31,7 +48,7 @@ export class testControl extends StateManager {
             // this.curstatecmt  = '';
         }
         if (!this.HasNextState()) {
-            this.SetNext(this.S_END);
+            this.SetNext(this.S_0001);
         }
         if (this.HasNextState()) {
             this.GoNext();
