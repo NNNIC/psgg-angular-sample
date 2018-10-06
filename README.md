@@ -10,7 +10,7 @@
     }
 ```
 
-## Tutorial #1
+## Tutorial 
 
 1. Go playground.  
   
@@ -22,3 +22,11 @@
 4. Push "001" button.  
 ![](https://raw.githubusercontent.com/NNNIC/psgg-angular-sample/master/wiki/test01.gif)  
 
+
+# Sample
+
+1. Go sample  
+  
+2. start server  
+  
+![](https://raw.githubusercontent.com/NNNIC/psgg-angular-sample/master/wiki/sample.gif)
