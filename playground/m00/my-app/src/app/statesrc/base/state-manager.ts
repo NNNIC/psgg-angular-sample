@@ -1,4 +1,4 @@
-export class StateManager {
+﻿export class StateManager {
 
     public curstatename: string;
     public curstatecmt: string;

@@ -1,8 +1,6 @@
-﻿//  psggConverterLib.dll converted from testControl.xlsx. 
-import { AppComponent } from '../app.component'; // add to template-source.txt
-import { testControlSub } from './testControlSub';
+﻿import { StateManager } from './base/state-manager';
 
-export class testControl extends testControlSub {
+export class testControl extends StateManager {
 
     public start() {
         this.Goto(this.S_START);
@@ -10,23 +8,8 @@ export class testControl extends testControlSub {
     public is_end() {
         return this.CheckState(this.S_END);
     }
-
-
-    /*
-        S_START
-    */
-    S_START(bFirst: boolean) {
-        if (bFirst) {
-            this.curstatename = 'S_START';
-            // this.curstatecmt  = '';
-        }
-        if (!this.HasNextState()) {
-            this.SetNext(this.S_HELLO);
-        }
-        if (this.HasNextState()) {
-            this.GoNext();
-        }
-    }
+    //                             [SYN-G-GEN OUTPUT START]   $/^[SE]_/$
+//  psggConverterLib.dll converted from testControl.xlsx. 
     /*
         S_END
     */
@@ -40,14 +23,12 @@ export class testControl extends testControlSub {
         }
     }
     /*
-        S_HELLO
-        say hello!
+        S_START
     */
-    S_HELLO(bFirst: boolean) {
+    S_START(bFirst: boolean) {
         if (bFirst) {
-            this.curstatename = 'S_HELLO';
-            // this.curstatecmt  = 'say hello!';
-            AppComponent.s_title='SYN-G-GEN !!!';
+            this.curstatename = 'S_START';
+            // this.curstatecmt  = '';
         }
         if (!this.HasNextState()) {
             this.SetNext(this.S_END);
@@ -57,5 +38,29 @@ export class testControl extends testControlSub {
         }
     }
 
-}
 
+    //                             [SYN-G-GEN OUTPUT END]
+    b_yesno: boolean;
+
+    br_yes(st) {
+      if (!this.HasNextState()) {
+        if (this.b_yesno) {
+          this.SetNext(st);
+        }
+      }
+    }
+    
+    br_no(st) {
+      if (!this.HasNextState()) {
+        if (!this.b_yesno) {
+          this.SetNext(st);
+        }
+      }
+    }
+  
+    br_notAbove(st) {
+      if (!this.HasNextState()) {
+        this.SetNext(st);
+      }
+    }  
+}
