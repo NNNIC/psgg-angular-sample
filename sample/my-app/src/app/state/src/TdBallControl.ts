@@ -1,26 +1,72 @@
-﻿//  psggConverterLib.dll converted from TdBallControl.xlsx. 
-import { TdBallControlSub } from './TdBallControlSub';
+﻿import { StateManager } from './../state-manager';
+import { TdRender } from './TdRender';
 
-export class TdBallControl extends TdBallControlSub {
+export class TdBallControl extends StateManager {
+
+  // Imprement here!
+
+  width  = 10;
+  height = 10;
+
+  x = 0;
+  y = 100;
+  step = 1;
+
+
+  xmax = 800;
+
+  initialize() {
+
+  }
+
+  move() {
+    const x = this.x;
+    const y = this.y;
+    const w = this.width;
+    const h = this.height;
+    TdRender.add( TdRender.MID, (ct: CanvasRenderingContext2D) => {
+      ct.fillStyle = '#ffff00';
+      ct.fillRect( x, y, w, h);
+    } );
+    this.x += this.step;
+  }
+
+  is_done() {
+    return (this.x - this.step > this.xmax);
+  }
 
     public start() {
         this.Goto(this.S_START);
     }
 
-
+    // [SYN-G-GEN OUTPUT START] indent(4) $/./$
+//  psggConverterLib.dll converted from TdBallControl.xlsx. 
     /*
-        S_START
-        開始
+        S_0001
+        new state
     */
-    S_START(bFirst: boolean) {
+    S_0001(bFirst: boolean) {
         if (bFirst) {
-            this.curstatename = 'S_START';
-            // this.curstatecmt  = '開始';
+            this.curstatename = 'S_0001';
+            // this.curstatecmt  = 'new state';
+        }
+        if (this.HasNextState()) {
+            this.GoNext();
+        }
+    }
+    /*
+        S_DESTROY
+        終了処理
+    */
+    S_DESTROY(bFirst: boolean) {
+        if (bFirst) {
+            this.curstatename = 'S_DESTROY';
+            // this.curstatecmt  = '終了処理';
+            this.OutOfDate();
         }
         if (!this.HasNextState()) {
-            this.SetNext(this.S_INIT);
+            this.SetNext(this.S_END);
         }
-        this.NoWait();
         if (this.HasNextState()) {
             this.GoNext();
         }
@@ -33,19 +79,6 @@ export class TdBallControl extends TdBallControlSub {
         if (bFirst) {
             this.curstatename = 'S_END';
             // this.curstatecmt  = '終了';
-        }
-        if (this.HasNextState()) {
-            this.GoNext();
-        }
-    }
-    /*
-        S_0001
-        new state
-    */
-    S_0001(bFirst: boolean) {
-        if (bFirst) {
-            this.curstatename = 'S_0001';
-            // this.curstatecmt  = 'new state';
         }
         if (this.HasNextState()) {
             this.GoNext();
@@ -88,22 +121,24 @@ export class TdBallControl extends TdBallControlSub {
         }
     }
     /*
-        S_DESTROY
-        終了処理
+        S_START
+        開始
     */
-    S_DESTROY(bFirst: boolean) {
+    S_START(bFirst: boolean) {
         if (bFirst) {
-            this.curstatename = 'S_DESTROY';
-            // this.curstatecmt  = '終了処理';
-            this.OutOfDate();
+            this.curstatename = 'S_START';
+            // this.curstatecmt  = '開始';
         }
         if (!this.HasNextState()) {
-            this.SetNext(this.S_END);
+            this.SetNext(this.S_INIT);
         }
+        this.NoWait();
         if (this.HasNextState()) {
             this.GoNext();
         }
     }
 
+
+    // [SYN-G-GEN OUTPUT END]
 }
 
