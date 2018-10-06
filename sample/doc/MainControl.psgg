@@ -1,0 +1,7 @@
+; PSGG Editor Shortcut file
+version=1.0
+file=MainControl.xlsx
+
+cd /d %~dp0
+
+start "" StateViewer.exe MainControl.xlsx
