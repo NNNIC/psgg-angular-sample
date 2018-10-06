@@ -1,43 +1,60 @@
-﻿// This source is created by ExcelStateChartConverter.exe. Source : Sub0003aControl.xlsx
-import { Sub0003aControlSub } from './Sub0003aControlSub';
-export class Sub0003aControl extends Sub0003aControlSub {
+﻿import { StateProgramService } from './../state-program.service';
+import { StateManager } from '../state-manager';
+
+export class Sub0003aControl extends StateManager {
+
+  // Imprement here!
+  sp: StateProgramService;
+
+  public ct: CanvasRenderingContext2D;
+  public center_x = 100;
+  public center_y = 100;
+  public radius   = 100;
+  public step     = 1;
+
+  angle: number;
+
+  SetupSp(svc) { this.sp = svc; }
+
+  draw_init() {
+    this.angle = 0;
+    this.ct.lineWidth = 8;
+  }
+
+  draw_update() {
+    let a = this.angle;
+    if (a > 360) { a = 360; }
+
+    const ct = this.ct;
+    ct.strokeStyle = 'red';
+    ct.beginPath();
+    ct.arc(this.center_x, this.center_y, this.radius, 0, (Math.PI * 2) * (a / 360) );
+    ct.stroke();
+    this.angle += this.step;
+  }
+
+  draw_wait() {
+    return (this.angle - this.step) > 360;
+  }
+
     public start() {
         this.Goto(this.S_START);
     }
+    // [SYN-G-GEN OUTPUT START] indent(4) $/./$
+//  psggConverterLib.dll converted from Sub0003aControl.xlsx. 
     /*
-        S_START
-        開始
+        S_DESTROY
+        終了処理
     */
-    S_START(bFirst: boolean) {
+    S_DESTROY(bFirst: boolean) {
         if (bFirst) {
-            this.curstatename = 'S_START';
-            // this.curstatecmt  = '開始';
-
+            this.curstatename = 'S_DESTROY';
+            // this.curstatecmt  = '終了処理';
+            this.OutOfDate();
         }
-
-
-
         if (!this.HasNextState()) {
-            this.SetNext(this.S_INIT);
+            this.SetNext(this.S_END);
         }
-        this.NoWait();
-        if (this.HasNextState()) {
-            this.GoNext();
-        }
-    }
-    /*
-        S_END
-        終了
-    */
-    S_END(bFirst: boolean) {
-        if (bFirst) {
-            this.curstatename = 'S_END';
-            // this.curstatecmt  = '終了';
-
-        }
-
-
-
         if (this.HasNextState()) {
             this.GoNext();
         }
@@ -54,10 +71,21 @@ export class Sub0003aControl extends Sub0003aControlSub {
         }
         this.draw_update();
         if (!this.draw_wait()) { return; }
-
-
         if (!this.HasNextState()) {
             this.SetNext(this.S_DESTROY);
+        }
+        if (this.HasNextState()) {
+            this.GoNext();
+        }
+    }
+    /*
+        S_END
+        終了
+    */
+    S_END(bFirst: boolean) {
+        if (bFirst) {
+            this.curstatename = 'S_END';
+            // this.curstatecmt  = '終了';
         }
         if (this.HasNextState()) {
             this.GoNext();
@@ -71,11 +99,7 @@ export class Sub0003aControl extends Sub0003aControlSub {
         if (bFirst) {
             this.curstatename = 'S_INIT';
             // this.curstatecmt  = '初期化';
-
         }
-
-
-
         if (!this.HasNextState()) {
             this.SetNext(this.S_DRAW_CIRCLE);
         }
@@ -85,26 +109,24 @@ export class Sub0003aControl extends Sub0003aControlSub {
         }
     }
     /*
-        S_DESTROY
-        終了処理
+        S_START
+        開始
     */
-    S_DESTROY(bFirst: boolean) {
+    S_START(bFirst: boolean) {
         if (bFirst) {
-            this.curstatename = 'S_DESTROY';
-            // this.curstatecmt  = '終了処理';
-            this.OutOfDate();
-
-
+            this.curstatename = 'S_START';
+            // this.curstatecmt  = '開始';
         }
-
-
-
         if (!this.HasNextState()) {
-            this.SetNext(this.S_END);
+            this.SetNext(this.S_INIT);
         }
+        this.NoWait();
         if (this.HasNextState()) {
             this.GoNext();
         }
     }
+
+
+    // [SYN-G-GEN OUTPUT END]
 
 }
