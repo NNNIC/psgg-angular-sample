@@ -30,3 +30,6 @@
 2. start server  
   
 ![](https://raw.githubusercontent.com/NNNIC/psgg-angular-sample/master/wiki/sample.gif)
+  
+  
+Å¶ This sample cannot use "IF" feature because simply I could not have enough time to do.
