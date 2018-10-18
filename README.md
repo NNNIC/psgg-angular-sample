@@ -1,5 +1,11 @@
 # psgg-angular-sample
 
+## Environment
+
+Windows 7/8/10  
+anguler6  
+SYN-G-GEN http://syn-g-gen.com  
+
 ## Implementation example
 
 ```
