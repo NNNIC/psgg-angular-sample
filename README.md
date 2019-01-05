@@ -4,7 +4,7 @@
 
 Windows 7/8/10  
 anguler6  
-SYN-G-GEN http://syn-g-gen.com  
+StateGo https://statego.programanic.com  
 
 ## Implementation example
 
